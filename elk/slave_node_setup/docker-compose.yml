@@ -1,0 +1,23 @@
+version: '3.6'
+services:
+        elasticsearch:
+                image: elasticsearch:8.3.3
+                container_name: elasticsearch
+                restart: always
+                volumes:
+                        - elastic_data:/usr/share/elasticsearch/data/
+                environment:
+                        - node.name=es01
+                        - cluster.name=websecaudit-db-cluster
+                        - xpack.security.enabled=false
+                        - discovery.seed_hosts=192.168.2.47,192.168.2.89,192.168.2.90,192.168.2.91,192.168.2.92
+                        - "ES_JAVA_OPTS=-Xmx4g -Xms4g"
+                ports:
+                        - '192.168.2.47:9200:9200'
+                        - '192.168.2.47:9300:9300'
+                networks:
+                        - elasticsearch
+volumes:
+        elastic_data: {}
+networks:
+        elasticsearch:

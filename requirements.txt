@@ -1,0 +1,7 @@
+pika
+certstream
+beautifulsoup4
+requests
+dnspython
+python-nmap
+regex
