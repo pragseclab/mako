@@ -4,4 +4,4 @@ ADD . ./
 
 RUN pip install -r requirements.txt
 
-ENTRYPOINT ["python", "ct_crawler.py"]
+ENTRYPOINT ["python", "mako.py"]
